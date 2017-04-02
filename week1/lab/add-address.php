@@ -2,9 +2,23 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <title></title>
     </head>
     <body>
+        
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="add-address.php">Add Address</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+        
         <?php
             require_once './models/dbconnect.php';
             require_once './models/address-CRUD.php';
@@ -28,12 +42,8 @@
                 
                 if (empty($fullname)) {
                     $errors[] = 'Full name is required.';
-                }
-                
-                if ( filter_var($email, FILTER_VALIDATE_EMAIL) !== false ) {
-                    $errors[] = 'Email is not valid.';
-                }
-                
+                }                
+                              
                 if (empty($addressline1)) {
                     $errors[] = 'Address Line 1 is required.';
                 }
@@ -84,5 +94,6 @@
             include './templates/add-address.html.php';
                         
         ?>
+        <br/>
     </body>
 </html>

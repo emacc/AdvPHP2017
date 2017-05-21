@@ -1,0 +1,29 @@
+<h1>Corporations</h1>
+
+<div class="content">
+    
+    <h3>Search</h3>
+    <!-- https://docs.angularjs.org/api/ng/filter/filter -->
+    <br />
+    <br /> 
+    
+    Search by Corporation: <input ng-model="search.corp"><br/>
+    Search by Owner <input ng-model="search.owner">
+    <table class="gridtable">
+        <thead>
+            <tr>
+                <th>Corporation</th>
+                <th>Owner</th>                
+                <th></th>
+            </tr>
+        </thead>    
+        
+        <tr ng-repeat="corp in vm.corps | filter:search">
+            <td>{{corp.corp}}</td>                  
+            <td>{{corp.owner}}</td>
+            <td><a ng-href="#/corp/{{corp.id}}">View</a></td>
+        </tr>
+    </table>
+        
+</div>
+
